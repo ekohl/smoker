@@ -1,0 +1,2 @@
+summary: Run smoker
+test: ./tmt.sh
