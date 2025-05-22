@@ -10,5 +10,11 @@ if [[ -z $FOREMAN_BASE_URL ]] ; then
 	fi
 fi
 
+if ! command -v pytest &> /dev/null ; then
+	pip3 install --user -r requirements.txt
+	echo "$PATH"
+	# In case ~/.local/bin was just created
+	hash -r
+fi
 
 pytest --base-url "${FOREMAN_BASE_URL}" "$@"
